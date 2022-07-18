@@ -1,15 +1,15 @@
 import React from "react";
 import "./App.css";
+//import Header from "./Components/Header";
 
-const ScoreContainer = () => {
+function App() {
   return (
-    <div>
+    <div className="App">
       <div>
-        <div>Score</div>
-        <div></div>
+        <p>Kathleen</p>
       </div>
     </div>
   );
-};
+}
 
-export default ScoreContainer;
+export default App;
