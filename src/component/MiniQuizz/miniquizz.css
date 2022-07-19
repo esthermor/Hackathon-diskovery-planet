@@ -1,0 +1,29 @@
+/*to display score*/
+
+.questionList {
+  display: inline-flex;
+  border-radius: 8px;
+  font-size: 1.4rem;
+}
+
+.QnA {
+  background-color: white;
+  color: black;
+  margin: 16px;
+}
+
+.questionBox {
+  background-color: black;
+  color: white;
+  margin: 10px;
+  width: 100%;
+}
+
+.answerBox {
+  width: 100%;
+  font-size: 16px;
+  border-radius: 15px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+}
