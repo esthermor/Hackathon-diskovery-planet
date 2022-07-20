@@ -1,13 +1,21 @@
 .popup {
-  width: fit-content;
+  display: block;
+  width: auto;
   color: white;
   background-color: rgba(0, 0, 0, 0.5);
 }
 
 .popup_header {
   display: flex;
+  align-content: center;
   justify-content: space-between;
   font-size: medium;
+}
+.close_btn {
+  background: rgba(0, 0, 0, 0.5);
+  border: 0;
+  color: white;
+  font-size: xx-large;
 }
 .title {
   font-size: large;
@@ -19,4 +27,7 @@
 .planet_image {
   height: 500px;
   width: 500px;
+}
+.planet_description {
+  width: 100%;
 }

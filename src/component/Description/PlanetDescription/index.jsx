@@ -14,9 +14,20 @@ const PlanetDescription = () => {
       planet_name: "Sun",
       planet_id: "GSFC_20171208_Archive_e001435",
       index: 0,
+      image: "https://nineplanets.org/wp-content/uploads/2020/03/sun.png",
     },
-    { planet_name: "Earth", planet_id: "PIA18033", index: 1 },
-    { planet_name: "Jupiter", planet_id: "PIA00343", index: 2 },
+    {
+      planet_name: "Earth",
+      planet_id: "PIA18033",
+      index: 1,
+      image: "https://nineplanets.org/wp-content/uploads/2020/03/earth.png",
+    },
+    {
+      planet_name: "Jupiter",
+      planet_id: "PIA00343",
+      index: 2,
+      image: "https://nineplanets.org/wp-content/uploads/2020/03/jupiter.png",
+    },
   ];
 
   const handleClickOpen = (index) => {
@@ -27,23 +38,26 @@ const PlanetDescription = () => {
   return (
     <div className="description_container">
       <div className="planet_animation">
-        {planets.map((items) => (
-          <button
-            key={items.planet_name}
-            onClick={() => handleClickOpen(items.index)}
-          >
-            {items.planet_name}
-          </button>
-        ))}
-      </div>
+        <div className="planets">
+          {planets.map((items) => (
+            <input
+              type="image"
+              src={items.image}
+              key={items.planet_name}
+              alt={items.planet_name}
+              onClick={() => handleClickOpen(items.index)}
+            />
+          ))}
+        </div>
 
-      <Modal
-        popup={popup}
-        setPopup={setPopup}
-        index={index}
-        setIndex={setIndex}
-        planets={planets}
-      />
+        <Modal
+          popup={popup}
+          setPopup={setPopup}
+          index={index}
+          setIndex={setIndex}
+          planets={planets}
+        />
+      </div>
     </div>
   );
 };

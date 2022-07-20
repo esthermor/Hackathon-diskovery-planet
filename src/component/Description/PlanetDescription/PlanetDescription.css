@@ -1,3 +1,20 @@
-.main {
+.description_container {
+  background: url("../../../Assets/Background/space_background.webp");
+  height: 968px;
+}
+
+input {
+  width: 12%;
+  height: 12%;
+}
+input:hover {
+  transform: scale(1.5);
+}
+.planets {
   display: flex;
+  flex-wrap: wrap;
+  padding: 5%;
+}
+.planet_animation {
+  padding: 1.5rem;
 }

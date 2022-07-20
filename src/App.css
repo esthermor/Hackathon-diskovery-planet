@@ -1,5 +1,4 @@
 .App {
-  background: url("./Assets/Background/space_background.webp");
   display: flex;
   flex-direction: column;
   padding: 2rem 0;

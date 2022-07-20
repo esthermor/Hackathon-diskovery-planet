@@ -9,6 +9,7 @@ const Modal = (props) => {
   const [image, setImage] = useState("");
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
+
   const planets = props.planets;
   useEffect(
     (res) => {
@@ -47,9 +48,9 @@ const Modal = (props) => {
 
           <div className="description">
             <img className="planet_image" src={image} alt="Image"></img>
-            <div>
-              <p className="title">{planets[props.index].planet_name}</p>
-              <p>{`Description: ${description}`}</p>
+            <div className="planet_descripton">
+              <p>{planets[props.index].planet_name}</p>
+              <p>{description.slice(0, description.indexOf("Read more"))}</p>
             </div>
           </div>
         </div>

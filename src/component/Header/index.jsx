@@ -1,16 +1,27 @@
-import "./header.css";
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Nav, NavLink, Bars, NavMenu, Title } from "./headerElements";
 
 const Header = () => {
   return (
-    <nav>
-      <div className="branding">Diskovery Planet</div>
-      <div className="menu-buttons">
-        <Link to="/">Main Page</Link>
-        <Link to="/miniquizz">Mini Quizz</Link>
-      </div>
-    </nav>
+    <>
+      <Nav>
+        <Bars />
+        <Title>Diskovery Planet</Title>
+        <NavMenu>
+          <NavLink to="/" activestyle="true">
+            Main Page
+          </NavLink>
+          <NavLink to="/miniquizz" activestyle="true">
+            Mini Quizz
+          </NavLink>
+          <NavLink to="/forum" activestyle="true">
+            Forum
+          </NavLink>
+          <NavLink to="/potd" activestyle="true">
+            POTD
+          </NavLink>
+        </NavMenu>
+      </Nav>
+    </>
   );
 };
 
