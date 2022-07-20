@@ -1,14 +1,6 @@
-// import React, { useState } from "react";
+import React, { useState } from "react";
 // import ReactDOM from "react-dom";
-import { useState } from "react";
 import "./miniquizz.css";
-
-// ReactDOM.render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>,
-//   document.getElementById("root")
-// );
 
 //Initiating the List of Question
 const MiniQuizz = () => {
@@ -69,102 +61,67 @@ const MiniQuizz = () => {
     },
   ];
 
-  const [current_question, setCurrentQuestion] = useState(0); //useState and onclick
+  // properties
+  const [currentIndexQuestion, setCurrentQuestion] = useState(0); //useState and onclick
   const [score, setScore] = useState(0);
+  const [result, setResult] = useState(false); // initially false bcos we dw to show the final result
 
-  //method to click answer
+  const currentQuestion = questionList[currentIndexQuestion]; //declare it here instead of under Question
+  const nextQuestion = currentIndexQuestion + 1;
+  const restartQuiz = () => {
+    setScore(0);
+    setCurrentQuestion(0);
+    setResult(false);
+  };
+
+  // method to set the score
   const handleAnswerItemClick = (isCorrect) => {
+    // Increment the score
     if (isCorrect) {
       setScore(score + 1);
     }
-
-    //pass to the next question
-    const nextQuestion = current_question + 1;
+    // pass to the next question
     if (nextQuestion < questionList.length) {
       setCurrentQuestion(nextQuestion);
     } else {
-      setScore();
+      setResult(true); //need to chg to show score
     }
   };
 
-  const currentQuestion = questionList[current_question];
-
   return (
     <div>
-      <h1> Planet Quiz </h1>
-
-      <div className="QnA">
-        <div className="questionBox">
-          <div>
-            <span>Question {current_question + 1} </span>
-          </div>
-          {currentQuestion.question}
+      <h1 className="header"> Planet Quiz </h1>
+      {result ? (
+        <div className="resultBox">
+          You've scored {score} out of {questionList.length} !
+          <button className="restartButton" onClick={() => restartQuiz()}>
+            {" "}
+            Let's diskover again!{" "}
+          </button>
         </div>
-        {currentQuestion.answerList.map((answerItem) => (
-          <div className="answerBox">
-            <button onClick={() => handleAnswerItemClick(answerItem.isCorrect)}>
-              {answerItem.answer}
-            </button>
+      ) : (
+        <div className="QnA">
+          <div className="questionBox">
+            <div className="questionIndex">
+              <span>Question {currentIndexQuestion + 1}</span>
+            </div>
+            <div className="question">{currentQuestion.question}</div>
           </div>
-        ))}
-      </div>
+          <div className="answerBox">
+            {currentQuestion.answerList.map((answerItem) => (
+              <button
+                key={answerItem.answer}
+                className="button"
+                onClick={() => handleAnswerItemClick(answerItem.isCorrect)}
+              >
+                {answerItem.answer}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 };
 
 export default MiniQuizz;
-
-//Identify if answers are correct
-//to recheck if can be shorten using arrow function
-//   const [score, setScore] = useState(0);
-//   if (isCorrect == "true") {
-//     return setScore(score + 1);
-//   } else {
-//     setScore(score);
-//   }
-
-//   const currentQuestion = question;
-//   const nextQuestion = currentQuestion + 1;
-//   if (nextQuestion < currentQuestion.length) {
-
-//   }
-
-// 	const [showScore, setShowScore] = useState(false);
-// 	const [score, setScore] = useState(0);
-
-// 	const handleAnswerOptionClick = (isCorrect) => {
-// 		if (isCorrect) {
-// 			setScore(score + 1);
-// 		}
-
-// 		const nextQuestion = currentQuestion + 1;
-// 		if (nextQuestion < questions.length) {
-// 			setCurrentQuestion(nextQuestion);
-// 		} else {
-// 			setShowScore(true);
-// 		}
-// 	};
-// 	return (
-// 		<div className='app'>
-// 			{showScore ? (
-// 				<div className='score-section'>
-// 					You scored {score} out of {questions.length}
-// 				</div>
-// 			) : (
-// 				<>
-// 					<div className='question-section'>
-// 						<div className='question-count'>
-// 							<span>Question {currentQuestion + 1}</span>/{questions.length}
-// 						</div>
-// 						<div className='question-text'>{questions[currentQuestion].questionText}</div>
-// 					</div>
-// 					<div className='answer-section'>
-// 						{questions[currentQuestion].answerOptions.map((answerOption) => (
-// 							<button onClick={() => handleAnswerOptionClick(answerOption.isCorrect)}>{answerOption.answerText}</button>
-// 						))}
-// 					</div>
-// 				</>
-// 			)}
-// 		</div>
-// 	);
-// }
