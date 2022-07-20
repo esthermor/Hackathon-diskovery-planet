@@ -1,0 +1,22 @@
+.popup {
+  width: fit-content;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.popup_header {
+  display: flex;
+  justify-content: space-between;
+  font-size: medium;
+}
+.title {
+  font-size: large;
+}
+.description {
+  display: flex;
+}
+
+.planet_image {
+  height: 500px;
+  width: 500px;
+}
