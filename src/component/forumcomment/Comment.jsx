@@ -1,5 +1,6 @@
 import CommentForm from "./CommentForm";
 import React from "react";
+import "./index.css";
 
 const Comment = ({
   comment,

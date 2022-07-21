@@ -1,15 +1,12 @@
-import React from "react";
 import { useState, useEffect } from "react";
 import CommentForm from "./CommentForm";
 import Comment from "./Comment";
-import "./index.css";
-
 import {
   getComments as getCommentsApi,
   createComment as createCommentApi,
   updateComment as updateCommentApi,
   deleteComment as deleteCommentApi,
-} from "../../apicomment";
+} from "../apicomment";
 
 const Comments = ({ currentUserId }) => {
   const [backendComments, setBackendComments] = useState([]);
@@ -62,8 +59,8 @@ const Comments = ({ currentUserId }) => {
 
   return (
     <div className="comments">
-      <h3 className="comments-title">Diskovery</h3>
-      <div className="comment-form-title">BattlePlanet</div>
+      <h3 className="comments-title">Planet Out</h3>
+      <div className="comment-form-title">Write comment</div>
       <CommentForm submitLabel="Write" handleSubmit={addComment} />
       <div className="comments-container">
         {rootComments.map((rootComment) => (

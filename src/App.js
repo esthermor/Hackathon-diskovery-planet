@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "./component/POTD/home";
-import NasaPhoto from "./component/POTD/nasaphoto";
+import Home from "./home";
+import NasaPhoto from "./component/POTD/index";
 import "./App.css";
 import Comments from "./component/forumcomment/Comments";
 
@@ -11,6 +11,7 @@ function App() {
       <div>
         <Routes>
           <Route path="/" element={<Home />}></Route>
+          <Route path="/forum" element={<Comments />}></Route>
           <Route path="/nasaphoto" element={<NasaPhoto />}>
             {/* <Route path="/nasaphoto" element={<NasaPhoto />} /> */}
           </Route>
@@ -23,13 +24,3 @@ function App() {
 }
 
 export default App;
-
-// const App = () => {
-//   return (
-//     <div>
-//       <Comments commentsUrl="http://localhost:3001/forum" currentUserId="1" />
-//     </div>
-//   );
-// };
-
-// export default App;
