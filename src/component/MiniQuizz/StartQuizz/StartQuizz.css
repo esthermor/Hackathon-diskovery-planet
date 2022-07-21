@@ -1,0 +1,16 @@
+.StartQuizzStyle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  width: auto;
+  background-color: transparent;
+  font-family: "Courier New", Courier, monospace;
+  font-style: italic;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.StartQuizzButton {
+  font-size: 300%;
+}
