@@ -62,12 +62,13 @@ const MiniQuizz = () => {
   ];
 
   // properties
-  const [currentIndexQuestion, setCurrentQuestion] = useState(0); //useState and onclick
+  const [currentIndexQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
-  const [result, setResult] = useState(false); // initially false bcos we dw to show the final result
-
-  const currentQuestion = questionList[currentIndexQuestion]; //declare it here instead of under Question
+  const [result, setResult] = useState(false);
+  const currentQuestion = questionList[currentIndexQuestion];
   const nextQuestion = currentIndexQuestion + 1;
+
+  //method to restart the quiz
   const restartQuiz = () => {
     setScore(0);
     setCurrentQuestion(0);
@@ -76,15 +77,13 @@ const MiniQuizz = () => {
 
   // method to set the score
   const handleAnswerItemClick = (isCorrect) => {
-    // Increment the score
     if (isCorrect) {
       setScore(score + 1);
     }
-    // pass to the next question
     if (nextQuestion < questionList.length) {
       setCurrentQuestion(nextQuestion);
     } else {
-      setResult(true); //need to chg to show score
+      setResult(true);
     }
   };
 
