@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import PlanetDescription from "./component/Description/PlanetDescription";
 import NasaPhoto from "./component/POTD/nasaphoto";
 import StartQuizz from "./component/MiniQuizz/StartQuizz";
+import Comments from "./component/forumcomment/Comments";
 
 function App() {
   return (
@@ -25,7 +26,7 @@ function App() {
             }
           />
           <Route path="/miniquizz" element={<MiniQuizz />} />
-          <Route path="/forum" element={<></>} />
+          <Route path="/forum" element={<Comments />} />
           <Route path="/potd" element={<NasaPhoto />} />
         </Routes>
       </Router>
