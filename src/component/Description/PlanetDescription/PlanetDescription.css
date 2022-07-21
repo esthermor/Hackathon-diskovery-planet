@@ -1,11 +1,11 @@
 .description_container {
   background: url("../../../Assets/Background/space_background.webp");
-  height: 968px;
+  height: fit-content;
 }
 
 input {
-  width: 12%;
-  height: 12%;
+  width: 150px;
+  height: auto;
 }
 input:hover {
   transform: scale(1.5);
@@ -13,6 +13,8 @@ input:hover {
 .planets {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
   padding: 5%;
 }
 .planet_animation {
