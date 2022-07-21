@@ -88,7 +88,7 @@ const MiniQuizz = () => {
   };
 
   return (
-    <div>
+    <div className="miniquizzContainer">
       <h1 className="header"> Planet Quiz </h1>
       {result ? (
         <div className="resultBox">
